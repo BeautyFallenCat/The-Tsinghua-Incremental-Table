@@ -39,8 +39,8 @@ var colors = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "Pre-Alpha-12-4",
-	name: "Literally nothing",
+	num: "Pre-Alpha-36-12",
+	name: "发挥潜能？",
 }
 
 function changelog(){
@@ -48,6 +48,12 @@ function changelog(){
 		<br><br><br><h1>更新日志:</h1><br>(不存在<span style='color: red'><s>剧透警告</s></span>)<br><br>
 		<span style="font-size: 17px;">
 			<h3><s>这里什么都没有，别看了</s></h3><br><br>
+			<h3>vPre-Alpha-36-12 - 发挥潜能？</h3><br>
+				- 意志和压力现在会导致游戏失败<br>
+				- 加入 6 维属性，虽然暂时没什么用<br>
+				- 加入新的卡牌等级：Tier 1 (青铜级)<br>
+				- 总卡牌数量：12，结局：高考 3,000 分<br>
+			<br><br>
 			<h3>vPre-Alpha-12-4 - 创世纪</h3><br>
 				- 开发了第一个版本，加入学分，意志与压力系统<br>
 				- 总卡牌数量：4，结局：高考 300 分<br>
@@ -97,6 +103,20 @@ function getPointsColor(){
 // Determines if it should show points/sec
 function canGenPoints(){
 	return false
+}
+
+function isUpgradeCovered(layer, id) {
+	let upgElement = getUpgradeElement(layer, id)
+	if (upgElement == null) return false
+	else {
+		let rect = upgElement.getBoundingClientRect()
+		return (mouseX > rect.left && mouseX < rect.right && mouseY > rect.top && mouseY < rect.bottom)
+	}
+}
+
+function getUpgradeElement(layer, id) {
+	let elementName = "#upgrade-" + layer + "-" + id.toString()
+	return document.querySelector(elementName)
 }
 
 // Calculate points/sec!

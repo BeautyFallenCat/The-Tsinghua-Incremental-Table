@@ -679,25 +679,25 @@ const Modal = {
 				<div v-if="Modal.data.bind" :is="Modal.data.bind" :data="Modal.data.bindData"></div>
 				<div v-html="Modal.data.text()" style="text-align: left; padding: 10px"></div>
 				<div style="display:flex">
-				<div class="modal-boxA" v-bind:style='[{"border-color": Modal.data.color}]' onclick = 'insertCard(player.p.newList[0]);Modal.closeFunc()'>
+				<div class="modal-boxA" v-bind:style='[{"border-color": TierColor(tmp.p.cards[player.p.newList[0]].tier), "color": TierColor(tmp.p.cards[player.p.newList[0]].tier)}]' onclick = 'insertCard(player.p.newList[0]);Modal.closeFunc()'>
 					<br>{{tmp.p.cards[player.p.newList[0]].name}}<br>
-					等阶:{{tmp.p.cards[player.p.newList[0]].tier}} (Original)<br>
+					等阶:{{tmp.p.cards[player.p.newList[0]].tier}} ({{TierName(tmp.p.cards[player.p.newList[0]].tier)}})<br>
 					_________________________<br>
 					<div style='text-align:left; margin-left: 15px; margin-top: 10px; font-size:15px '>高考考分 {{formatWhole(tmp.p.cards[player.p.newList[0]].points)}}/回合丨Type: {{tmp.p.cards[player.p.newList[0]].type}}<br>意志 {{formatWhole(tmp.p.cards[player.p.newList[0]].mind)}}/回合<br>压力 {{formatWhole(tmp.p.cards[player.p.newList[0]].pressure)}}/回合</div>
 					_________________________<br><br>
 					<div style='text-align:left; margin-left: 15px; margin-top: 10px; font-size:15px '>{{tmp.p.cards[player.p.newList[0]].special}}</div>
 				</div>
-				<div class="modal-boxA" v-bind:style='[{"border-color": "white"}]' onclick = 'insertCard(player.p.newList[1]);Modal.closeFunc()'>
+				<div class="modal-boxA" v-bind:style='[{"border-color": TierColor(tmp.p.cards[player.p.newList[1]].tier), "color": TierColor(tmp.p.cards[player.p.newList[1]].tier)}]' onclick = 'insertCard(player.p.newList[1]);Modal.closeFunc()'>
 					<br>{{tmp.p.cards[player.p.newList[1]].name}}<br>
-					等阶:{{tmp.p.cards[player.p.newList[1]].tier}} (Original)<br>
+					等阶:{{tmp.p.cards[player.p.newList[1]].tier}} ({{TierName(tmp.p.cards[player.p.newList[1]].tier)}})<br>
 					_________________________<br>
 					<div style='text-align:left; margin-left: 15px; margin-top: 10px; font-size:15px; border-color: #a8a8a8 '>高考考分 {{formatWhole(tmp.p.cards[player.p.newList[1]].points)}}/回合丨Type: {{tmp.p.cards[player.p.newList[1]].type}}<br>意志 {{formatWhole(tmp.p.cards[player.p.newList[1]].mind)}}/回合<br>压力 {{formatWhole(tmp.p.cards[player.p.newList[1]].pressure)}}/回合</div>
 					_________________________<br><br>
 					<div style='text-align:left; margin-left: 15px; margin-top: 10px; font-size:15px; border-color: #a8a8a8 '>{{tmp.p.cards[player.p.newList[1]].special}}</div>
 				</div>
-				<div class="modal-boxA" v-bind:style='[{"border-color": "white"}]' onclick = 'insertCard(player.p.newList[2]);Modal.closeFunc()'>
+				<div class="modal-boxA" v-bind:style='[{"border-color": TierColor(tmp.p.cards[player.p.newList[2]].tier), "color": TierColor(tmp.p.cards[player.p.newList[2]].tier)}]' onclick = 'insertCard(player.p.newList[2]);Modal.closeFunc()'>
 					<br>{{tmp.p.cards[player.p.newList[2]].name}}<br>
-					等阶:{{tmp.p.cards[player.p.newList[2]].tier}} (Original)<br>
+					等阶:{{tmp.p.cards[player.p.newList[2]].tier}} ({{TierName(tmp.p.cards[player.p.newList[2]].tier)}})<br>
 					_________________________<br>
 					<div style='text-align:left; margin-left: 15px; margin-top: 10px; font-size:15px; border-color: #E5C100 '>高考考分{{formatWhole(tmp.p.cards[player.p.newList[2]].points)}}/回合丨Type: {{tmp.p.cards[player.p.newList[2]].type}}<br>意志 {{formatWhole(tmp.p.cards[player.p.newList[2]].mind)}}/回合<br>压力 {{formatWhole(tmp.p.cards[player.p.newList[2]].pressure)}}/回合</div>
 					_________________________<br><br>
