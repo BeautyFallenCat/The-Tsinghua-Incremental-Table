@@ -1,0 +1,109 @@
+/* Global things */
+
+@font-face {
+	font-family: "custom"; /* 自定义字体的名字 */
+	src: url("方正颜真卿楷书\ 简繁.TTF") format("truetype"); /* 字体文件的路径和格式 */
+}
+*{
+    font-family: "custom" !important
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 600px;
+	width: 1024px;
+	z-index: 300003;
+	background-color: var(--background);
+	border: 2px solid white;
+	border-radius: 10px;
+}
+.modal-top {
+	text-align: left;
+	font-size: 30px;
+	height: 40px;
+	width: 100%;
+	border-bottom: 2px solid white;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+.modal-boxA {
+	text-align: center;
+	font-size: 20px;
+	height: 400px;
+	width: 29%;
+	border: 2px solid white;
+	justify-content: left;
+	align-items: center;
+}
+.modal-top > * {
+	margin: 0;
+}
+
+body {
+	color: var(--color);
+	overflow: hidden;
+	--background: #0f0f0f;
+	--color: #dfdfdf;
+	--points: #ffffff;
+	background: var(--background);
+	font-family: "custom";
+}
+
+spoiler:active {
+    background-color: transparent;
+    color: var(--color);
+}
+
+spoiler {
+    background-color: var(--color);
+    border-radius: 5px;
+    transition-duration: 0.1s;
+    cursor: pointer;
+    color: transparent;
+}
+
+/* General text */
+h1, h2, h3, b, input {
+	display: inline;
+}
+
+/* These are styles for different states of components. You can make layer-specific versions with .c.locked, for example */
+.locked {
+	background-color: #bf8f8f;
+	cursor: not-allowed;
+}
+
+/* Can meens can be clicked/bought/etc */
+.can {
+	cursor: pointer;
+}
+
+.can:hover {
+	transform: scale(1.15, 1.15);
+	box-shadow: 0 0 20px var(--points)
+}
+
+.bought {
+	background-color: #77bf5f;
+	cursor: default;
+}
+
+#points {
+	color: var(--points);
+	text-shadow: 0 0 10px var(--points);
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: rgb(255, 255, 255);
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+	background-color: #888;
+}
