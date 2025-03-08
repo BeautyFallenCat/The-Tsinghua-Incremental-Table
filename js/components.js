@@ -678,7 +678,7 @@ const Modal = {
 				</div>
 				<div v-if="Modal.data.bind" :is="Modal.data.bind" :data="Modal.data.bindData"></div>
 				<div v-html="Modal.data.text()" style="text-align: left; padding: 10px"></div>
-				<div style="display:flex">
+			<div style="display:flex" v-if="player.p.modelType == 'card'">
 				<div class="modal-boxA" v-bind:style='[{"border-color": TierColor(tmp.p.cards[player.p.newList[0]].tier), "color": TierColor(tmp.p.cards[player.p.newList[0]].tier)}]' onclick = 'insertCard(player.p.newList[0]);Modal.closeFunc()'>
 					<br>{{tmp.p.cards[player.p.newList[0]].name}}<br>
 					等阶:{{tmp.p.cards[player.p.newList[0]].tier}} ({{TierName(tmp.p.cards[player.p.newList[0]].tier)}})<br>
@@ -703,14 +703,40 @@ const Modal = {
 					_________________________<br><br>
 					<div style='text-align:left; margin-left: 15px; margin-top: 10px; font-size:15px; border-color: #E5C100 '>{{tmp.p.cards[player.p.newList[2]].special}}</div>
 				</div>
+			</div>
+			<div style="display:flex" v-if="player.p.modelType == 'decision'">
+				<div class="modal-boxA" onclick = 'decide("A"), Modal.closeFunc()'>
+                <br>{{tmp.s.event[player.s.currentEvent].A.title}}<br>
+				_________________________<br><br>
+				{{tmp.s.event[player.s.currentEvent].A.desc}}
 				</div>
+				<div class="modal-boxA" onclick = 'decide("B"), Modal.closeFunc()'>
+                <br>{{tmp.s.event[player.s.currentEvent].B.title}}<br>
+				_________________________<br><br>
+				{{tmp.s.event[player.s.currentEvent].B.desc}}
+				</div>
+				<div class="modal-boxA" onclick = 'decide("C"), Modal.closeFunc()'>
+                <br>{{tmp.s.event[player.s.currentEvent].C.title}}<br>
+				_________________________<br><br>
+				{{tmp.s.event[player.s.currentEvent].C.desc}}
+				</div>
+			</div>
 				<div style="position: absolute; bottom: 120px; left: 47%; width:100%; transform: translateX(-50%); text-align: center">
 					<button class='tabButton' v-for="(btn,i) in Modal.data.buttons" @click="btn.onClick" style="min-width: 5px; margin: 0 5px" v-bind:style='[{"border-color": Modal.data.color,"opacity": btn.unlocked()? "1":"0","visibility": btn.unlocked()? "visible":"hidden"}]'>{{btn.text}}</button>
 				</div>
 				<div v-bind:style='[{"border-color": Modal.data.color}]' style="border: 2px solid white;border-radius:5px; height: 25px; position: absolute; bottom: 50px; left: 44%; width: 100px; font-size:20px; padding:10px"
 					onclick="Modal.closeFunc()">跳过
 				</div>
-			</div>`
+			</div>
+				<div style="position: absolute; bottom: 120px; left: 47%; width:100%; transform: translateX(-50%); text-align: center">
+					<button class='tabButton' v-for="(btn,i) in Modal.data.buttons" @click="btn.onClick" style="min-width: 5px; margin: 0 5px" v-bind:style='[{"border-color": Modal.data.color,"opacity": btn.unlocked()? "1":"0","visibility": btn.unlocked()? "visible":"hidden"}]'>{{btn.text}}</button>
+				</div>
+				<div v-bind:style='[{"border-color": Modal.data.color}]' style="border: 2px solid white;border-radius:5px; height: 25px; position: absolute; bottom: 50px; left: 44%; width: 100px; font-size:20px; padding:10px"
+					onclick="Modal.closeFunc()">跳过
+				</div>
+			</div>
+			
+			`
 		});
 	},
 	show({title, text="", bind="",color="white", bindData={}, style={}, buttons=[], close=function () {Modal.close();}}) {

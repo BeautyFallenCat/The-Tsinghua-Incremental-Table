@@ -39,8 +39,8 @@ var colors = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "Pre-Alpha-36-12",
-	name: "发挥潜能？",
+	num: "Pre-Alpha-60-43",
+	name: "义务教育前",
 }
 
 function changelog(){
@@ -48,6 +48,14 @@ function changelog(){
 		<br><br><br><h1>更新日志:</h1><br>(不存在<span style='color: red'><s>剧透警告</s></span>)<br><br>
 		<span style="font-size: 17px;">
 			<h3><s>这里什么都没有，别看了</s></h3><br><br>
+			<h3>vPre-Alpha-60-43 - 义务教育前</h3><br>
+				- 6 维属性被赋予了作用
+				- 加入新的卡牌等级：Tier 2 (白银级) Tier 3 (黄金级)<br>
+				- 加入事件，并添加 4 个事件<br>
+				- 目标系统实装<br>
+				- 幼儿园系统初步实装<br>
+				- 总卡牌数量：43，结局：高考 10,000 分<br>
+			<br><br>
 			<h3>vPre-Alpha-36-12 - 发挥潜能？</h3><br>
 				- 意志和压力现在会导致游戏失败<br>
 				- 加入 6 维属性，虽然暂时没什么用<br>
